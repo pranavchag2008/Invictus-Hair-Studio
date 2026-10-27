@@ -1,0 +1,16 @@
+Placeholder photo credits
+These photographs are licensed stock images from Pexels, used strictly as placeholders for the unofficial website concept. They do not depict Invictus Hair Studio, its team, or its clients, and they are not the studio's work.
+
+Replace them with approved photography from the business, then remove the placeholder notice in src/content/site.ts (galleryNotice).
+
+File	Pexels photo	Used for
+hero-shop.jpg	https://www.pexels.com/photo/7518700/	Homepage hero background
+about-chair.jpg	https://www.pexels.com/photo/7518728/	"The studio" section image
+booking-bg.jpg	https://www.pexels.com/photo/7697441/	Appointment band background
+gallery-01-razor.jpg	https://www.pexels.com/photo/7697441/	Gallery
+gallery-02-fade.jpg	https://www.pexels.com/photo/13450758/	Gallery
+gallery-03-beard.jpg	https://www.pexels.com/photo/19287846/	Gallery
+gallery-04-clippers.jpg	https://www.pexels.com/photo/29189825/	Gallery
+gallery-05-taper.jpg	https://www.pexels.com/photo/18213697/	Gallery
+gallery-07-interior.jpg	https://www.pexels.com/photo/17665771/	Gallery
+Fonts: Instrument Serif and Inter Tight, served by Google Fonts under the SIL Open Font License.
