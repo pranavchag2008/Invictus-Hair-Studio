@@ -1,0 +1,73 @@
+import { useEffect } from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
+import About from "./components/About";
+import Services from "./components/Services";
+import Gallery from "./components/Gallery";
+import Booking from "./components/Booking";
+import Visit from "./components/Visit";
+import Footer from "./components/Footer";
+import BookBar from "./components/BookBar";
+
+export default function App() {
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const all = () => Array.from(document.querySelectorAll<HTMLElement>(".reveal"));
+
+    if (prefersReduced) {
+      all().forEach((element) => element.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    const observeNew = () =>
+      all().forEach((element) => {
+        if (!element.classList.contains("is-visible")) observer.observe(element);
+      });
+
+    observeNew();
+
+    // Re-scan when components mount later (e.g. hot reload, conditional sections).
+    const mutation = new MutationObserver(observeNew);
+    mutation.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutation.disconnect();
+    };
+  }, []);
+
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+
+      <main id="main">
+        <Hero />
+        <Marquee />
+        <About />
+        <Services />
+        <Gallery />
+        <Booking />
+        <Visit />
+      </main>
+
+      <Footer />
+      <BookBar />
+    </>
+  );
+}
